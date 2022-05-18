@@ -670,7 +670,7 @@ function Introduction_story () {
         . . . f f . . f f . . . 
         `, SpriteKind.NPC)
     Commander.setPosition(60, 60)
-    timer.after(2000, function () {
+    timer.after(1500, function () {
         game.showLongText("Now the report is over. Hi Helix, welcome to SFAU. I am your commander and I will introduce your mission. In SFAU, there are two types of forces: vanguard force and defensive force. You are in the vanguard force. Your mission is to eliminate all undead and infected animals in the specified area for the defensive force to be stationed. You will be given a communication device and I will contact you all over the mission.", DialogLayout.Bottom)
         timer.after(500, function () {
             story.spriteSayText(Commander, "Good luck, soldier.")
