@@ -5,7 +5,9 @@
         "device": "*",
         "block-menu": "github:riknoll/arcade-custom-menu#v0.0.1",
         "arcade-story": "github:microsoft/arcade-storytelling#v1.0.3",
-        "Timers": "github:microsoft/arcade-timers#v1.1.0"
+        "Timers": "github:microsoft/arcade-timers#v1.1.0",
+        "color": "*",
+        "Color Fading": "github:jwunderl/pxt-color#v0.2.2"
     },
     "files": [
         "main.blocks",
@@ -27,5 +29,5 @@
     "supportedTargets": [
         "arcade"
     ],
-    "preferredEditor": "blocksprj"
+    "preferredEditor": "tsprj"
 }
