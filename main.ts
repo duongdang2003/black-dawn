@@ -9,9 +9,32 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
         progress = "introduction story"
     }
 })
+function fightBossMusic () {
+    music.playMelody("D - E - C D E D ", 120)
+    while (true) {
+        music.playTone(330, music.beat(BeatFraction.Half))
+        music.playTone(349, music.beat(BeatFraction.Half))
+        music.playTone(330, music.beat(BeatFraction.Half))
+        music.playTone(294, music.beat(BeatFraction.Half))
+        music.playTone(330, music.beat(BeatFraction.Quarter))
+        music.playTone(349, music.beat(BeatFraction.Quarter))
+    }
+}
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 	
 })
+function fade_out (block: boolean) {
+    if (block) {
+        color.startFade(color.Black, color.originalPalette, 2000)
+        color.pauseUntilFadeDone()
+    }
+}
+function fade_in (block: boolean) {
+    if (block) {
+        color.startFade(color.originalPalette, color.Black, 2000)
+        color.pauseUntilFadeDone()
+    }
+}
 function Introduction_story () {
     scene.setBackgroundImage(img`
         9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
