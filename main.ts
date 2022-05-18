@@ -700,6 +700,16 @@ function Introduction_story () {
         })
     })
 }
+function save_part (part: string) {
+    current_part = part
+    blockSettings.writeString("part", current_part)
+    timer.after(4000, function () {
+        timer.background(function () {
+            Notification.waitForNotificationFinish()
+            Notification.notify("Your propress have been saved!", 1, assets.image`floppy_disc`)
+        })
+    })
+}
 blockMenu.onMenuOptionSelected(function (option, index) {
     if (blockMenu.selectedMenuOption() == "Play") {
         blockMenu.closeMenu()
@@ -714,6 +724,8 @@ let Commander: Sprite = null
 let Helix: Sprite = null
 let black_screen: Sprite = null
 let progress = ""
+let current_part = ""
+current_part = ""
 scene.setBackgroundImage(img`
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
