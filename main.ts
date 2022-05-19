@@ -66,6 +66,16 @@ function fade_out (time: number) {
     color.startFade(color.Black, color.originalPalette, time)
     color.pauseUntilFadeDone()
 }
+function save_site (site: string) {
+    current_part = site
+    blockSettings.writeString("part", current_part)
+    timer.after(4000, function () {
+        timer.background(function () {
+            Notification.waitForNotificationFinish()
+            Notification.notify("Your progress have been save!", 1, assets.image`floppy_disc`)
+        })
+    })
+}
 function fade_in (time: number) {
     color.startFade(color.originalPalette, color.Black, time)
     color.pauseUntilFadeDone()
@@ -952,6 +962,7 @@ let M4A1: Sprite = null
 let Captain: Sprite = null
 let Commander: Sprite = null
 let Helix: Sprite = null
+let current_part = ""
 let progress = ""
 scene.setBackgroundImage(img`
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff

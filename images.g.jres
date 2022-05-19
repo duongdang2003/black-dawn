@@ -4,6 +4,11 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "myImage"
     },
+    "bACp]zo": {
+        "data": "hwQIAAgAAAAA////8Kqq+q/6////+h/x//of8f/6//+vqqr6/////w==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "floppy_disc"
+    },
     "anim1": {
         "namespace": "myAnimations",
         "id": "anim1",

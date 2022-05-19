@@ -22,6 +22,17 @@ namespace myImages {
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 `;
+            case "bACp]zo":
+            case "floppy_disc":return img`
+. . f f f f f f 
+. f a f f f a f 
+f a a a a a a f 
+f a f f f f a f 
+f a f f f f a f 
+f a f 1 1 f a f 
+f a f 1 1 f a f 
+f f f f f f f f 
+`;
         }
         return null;
     })
