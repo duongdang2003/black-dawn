@@ -700,16 +700,6 @@ function Introduction_story () {
         })
     })
 }
-function save_part (part: string) {
-    current_part = part
-    blockSettings.writeString("part", current_part)
-    timer.after(4000, function () {
-        timer.background(function () {
-            Notification.waitForNotificationFinish()
-            Notification.notify("Your propress have been saved!", 1, assets.image`floppy_disc`)
-        })
-    })
-}
 blockMenu.onMenuOptionSelected(function (option, index) {
     if (blockMenu.selectedMenuOption() == "Play") {
         blockMenu.closeMenu()
@@ -722,9 +712,8 @@ blockMenu.onMenuOptionSelected(function (option, index) {
 })
 let Commander: Sprite = null
 let Helix: Sprite = null
-let progress = ""
 let black_screen: Sprite = null
-let current_part = ""
+let progress = ""
 scene.setBackgroundImage(img`
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
@@ -815,16 +804,16 @@ scene.setBackgroundImage(img`
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
-    ffffffffffffffffffffffffffffffffffffffffffffffffffffffff111ff1111ff111ff11fff11ffff111ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
-    ffffffffffffffffffffffffffffffffffffffffffffffffffffffff1ff1f1fff1f1fff1ffff1ffffff1ff1fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
-    ffffffffffffffffffffffffffffffffffffffffffffffffffffffff111ff1111ff111ff11fff11ffff111ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
-    ffffffffffffffffffffffffffffffffffffffffffffffffffffffff1ffff1f1fff1ffffff1ffff1fff1ff1fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
-    ffffffffffffffffffffffffffffffffffffffffffffffffffffffff1ffff1ff1ff111ff11fff11ffff111ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
-    ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+    fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff111ff1111ff1111ff11fff11ffffff1111fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+    fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff1ff1f1fff1f1ffff1ff1f1ff1fffff1fff1ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+    fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff1ff1f1fff1f1fffff1ffff1fffffff1fff1ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+    fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff111ff1111ff1111fff1ffff1ffffff1111fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+    fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff1ffff1f1fff1ffff1ff1f1ff1fffff1fff1ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+    fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff1ffff1ff1ff1111ff11fff11ffffff1111fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
@@ -847,7 +836,7 @@ scene.setBackgroundImage(img`
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     `)
-current_part = ""
+progress = "introduction"
 black_screen = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
@@ -867,4 +856,3 @@ black_screen = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.Change_scene)
 black_screen.setPosition(8, 8)
-progress = "introduction"

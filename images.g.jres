@@ -1,14 +1,4 @@
 {
-    "image1": {
-        "data": "hwQIAAgAAAAA////8Kqq+q+q////rx/x/68f8f+v//+vqqr6/////w==",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "floppy_disc"
-    },
-    "image2": {
-        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "myImage"
-    },
     "anim1": {
         "namespace": "myAnimations",
         "id": "anim1",
