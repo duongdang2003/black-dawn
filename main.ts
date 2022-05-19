@@ -24,17 +24,51 @@ function fightBossMusic () {
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 	
 })
-function fade_out (block: boolean) {
-    if (block) {
-        color.startFade(color.Black, color.originalPalette, 2000)
-        color.pauseUntilFadeDone()
+function testMusic () {
+    while (true) {
+        for (let index = 0; index < 3; index++) {
+            music.playTone(262, music.beat(BeatFraction.Half))
+            music.playTone(175, music.beat(BeatFraction.Half))
+            music.playTone(196, music.beat(BeatFraction.Half))
+            music.playTone(156, music.beat(BeatFraction.Whole))
+            music.playTone(196, music.beat(BeatFraction.Half))
+            music.playTone(165, music.beat(BeatFraction.Half))
+            music.playTone(196, music.beat(BeatFraction.Half))
+        }
+        music.playTone(262, music.beat(BeatFraction.Half))
+        music.playTone(294, music.beat(BeatFraction.Quarter))
+        music.playTone(311, music.beat(BeatFraction.Half))
+        music.playTone(349, music.beat(BeatFraction.Quarter))
+        music.playTone(294, music.beat(BeatFraction.Half))
+        for (let index = 0; index < 2; index++) {
+            music.playTone(392, music.beat(BeatFraction.Whole))
+            music.playTone(330, music.beat(BeatFraction.Half))
+            music.playTone(349, music.beat(BeatFraction.Whole))
+            music.playTone(330, music.beat(BeatFraction.Half))
+            music.playTone(392, music.beat(BeatFraction.Half))
+            music.playTone(330, music.beat(BeatFraction.Half))
+            music.playTone(349, music.beat(BeatFraction.Whole))
+            music.playTone(294, music.beat(BeatFraction.Half))
+            music.playTone(349, music.beat(BeatFraction.Half))
+            music.playTone(294, music.beat(BeatFraction.Whole))
+            music.playTone(330, music.beat(BeatFraction.Half))
+            music.playTone(294, music.beat(BeatFraction.Half))
+            music.playTone(262, music.beat(BeatFraction.Half))
+            music.playTone(262, music.beat(BeatFraction.Half))
+            music.playTone(262, music.beat(BeatFraction.Whole))
+            music.playTone(440, music.beat(BeatFraction.Half))
+        }
     }
+    music.setVolume(255)
+    music.setTempo(120)
 }
-function fade_in (block: boolean) {
-    if (block) {
-        color.startFade(color.originalPalette, color.Black, 2000)
-        color.pauseUntilFadeDone()
-    }
+function fade_out (time: number) {
+    color.startFade(color.Black, color.originalPalette, time)
+    color.pauseUntilFadeDone()
+}
+function fade_in (time: number) {
+    color.startFade(color.originalPalette, color.Black, time)
+    color.pauseUntilFadeDone()
 }
 function Site_1 () {
     introduction_story_site_1()
@@ -162,6 +196,7 @@ function Introduction_story () {
         7777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777
         7777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777
         `)
+    fade_out(1500)
     game.showLongText("In Hallock, the region of Faris has the biggest event that shakes the world ever.", DialogLayout.Bottom)
     scene.setBackgroundImage(img`
         6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666
@@ -532,7 +567,7 @@ function Introduction_story () {
         9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
         `)
     game.showLongText("To prevent the epidemic from spreading, the government of Faris decided to establish the special forces against the undead (SFAU) with the participation of many elite soldiers from all over Faris.", DialogLayout.Bottom)
-    color.startFade(color.Black, color.originalPalette, 500)
+    fade_in(1000)
     scene.setBackgroundImage(img`
         eeeee2222222222222222222222222222222222ee2222ee2222ee2222222eeeee2222222222222222222222222222222222ee22222eeee222ee2eeeee2222222222222222222222222222222222ee222
         222eeeee22222222222222222222222222222eee2222eeee2222ee222222222eeeee22222222222222222222222222222eee2222eeeee222ee22222eeeee22222222222222222222222222222eee2222
@@ -655,6 +690,7 @@ function Introduction_story () {
         222222e2ebbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbe2e222222
         222222eeebbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbeee222222
         `)
+    fade_out(1000)
     Helix = sprites.create(img`
         . . . . f f f f . . . . . 
         . . f f f f f f f f . . . 
@@ -696,7 +732,7 @@ function Introduction_story () {
         game.showLongText("Now the report is over. Hi Helix, welcome to SFAU. I am your commander and I will introduce your mission. In SFAU, there are two types of forces: vanguard force and defensive force. You are in the vanguard force. Your mission is to eliminate all undead and infected animals in the specified area for the defensive force to be stationed. You will be given a communication device and I will contact you all over the mission.", DialogLayout.Bottom)
         timer.after(1000, function () {
             story.spriteSayText(Commander, "Good luck, soldier.")
-            color.startFade(color.Black, color.originalPalette, 1000)
+            fade_in(1000)
             Commander.destroy()
             Site_1()
         })
@@ -825,6 +861,7 @@ function introduction_story_site_1 () {
         7777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777
         7777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777
         `)
+    fade_out(1000)
     tiles.setCurrentTilemap(tilemap`level1`)
     Captain = sprites.create(img`
         . . . . . . f f f f . . . . . . 
@@ -852,7 +889,6 @@ function introduction_story_site_1 () {
     story.spriteSayText(Captain, "Do you have any question?")
     story.spriteSayText(Helix, "Do I have any equipment?")
     story.spriteSayText(Captain, "Absolutely, soldier. we will give you an M4A1 with automatic fire, accurate, durable, low recoil and heat resistant. Very suitable for this campaign.")
-    color.startFade(color.Black, color.originalPalette, 500)
     M4A1 = sprites.create(img`
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
@@ -873,7 +909,7 @@ function introduction_story_site_1 () {
         `, SpriteKind.Gun)
     M4A1.follow(Helix, 200)
     story.spriteSayText(Captain, "Also we will give you an armor that can resist radiation and absorb damage")
-    color.startFade(color.Black, color.originalPalette, 500)
+    fade_in(200)
     Helix.setImage(img`
         . . . . . . . c c c . . . . . . 
         . . . . . . c b 5 c . . . . . . 
@@ -892,16 +928,19 @@ function introduction_story_site_1 () {
         . . . . c b 5 5 5 5 b c . . . . 
         . . . . . f f f f f f . . . . . 
         `)
+    fade_out(200)
     story.spriteSayText(Captain, "And that's all. Any other questions?")
     story.spriteSayText(Helix, "No, i got it")
     story.spriteSayText(Captain, "I believe that you and your team will save the Hallock")
     story.spriteSayText(Captain, "Break a leg, soldier")
-    color.startFade(color.Black, color.originalPalette, 1000)
+    fade_in(700)
     controller.moveSprite(Helix)
+    fade_out(700)
 }
 blockMenu.onMenuOptionSelected(function (option, index) {
     if (blockMenu.selectedMenuOption() == "Play") {
         blockMenu.closeMenu()
+        fade_in(1500)
         Introduction_story()
     } else if (blockMenu.selectedMenuOption() == "How to play") {
         game.showLongText("Use the direction button to move the character \n A to shoot or interact \n B to change the weapond", DialogLayout.Full)
@@ -914,7 +953,6 @@ let Captain: Sprite = null
 let Commander: Sprite = null
 let Helix: Sprite = null
 let progress = ""
-let black_screen = null
 scene.setBackgroundImage(img`
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
@@ -1039,3 +1077,5 @@ scene.setBackgroundImage(img`
     `)
 progress = "introduction"
 color.startFade(color.Black, color.originalPalette, 500)
+testMusic()
+fightBossMusic()
