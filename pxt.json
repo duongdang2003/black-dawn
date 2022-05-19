@@ -6,7 +6,14 @@
         "block-menu": "github:riknoll/arcade-custom-menu#v0.0.1",
         "arcade-story": "github:microsoft/arcade-storytelling#v1.0.3",
         "Timers": "github:microsoft/arcade-timers#v1.1.0",
-        "Color Fading": "github:jwunderl/pxt-color#v0.2.2"
+        "Color Fading": "github:jwunderl/pxt-color#v0.2.2",
+        "color-coded-tilemap": "*",
+        "arcade-tile-util": "github:microsoft/arcade-tile-util#v1.0.1",
+        "pxt-skillmap-sample": "github:microsoft/pxt-skillmap-sample#b36c62725e3fe26fca25b64cf158878b5fccd9be",
+        "pxt-button-combos": "github:jwunderl/pxt-button-combos#v0.0.24",
+        "arcade-sprite-data": "github:microsoft/arcade-sprite-data#v0.1.0",
+        "arcade-text": "github:microsoft/arcade-text#v1.3.0",
+        "arcade-sprite-util": "github:jwunderl/arcade-sprite-util#v0.2.5"
     },
     "files": [
         "main.blocks",
