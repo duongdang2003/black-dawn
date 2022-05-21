@@ -5,6 +5,13 @@ namespace SpriteKind {
     export const Teammate = SpriteKind.create()
     export const Documentation = SpriteKind.create()
 }
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Documentation, function (sprite, otherSprite) {
+    if (controller.A.isPressed()) {
+        if (Helix.overlapsWith(Paper_1)) {
+            game.showLongText("Wow wow wow", DialogLayout.Full)
+        }
+    }
+})
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     direction = "up"
 })
@@ -23,10 +30,49 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Teammate, function (sprite, othe
         }
     }
 })
+function stage_1_site_1 () {
+    List_Y_Position = [15, 1]
+    for (let index = 0; index < 10; index++) {
+        Zombie = sprites.create(img`
+            ........................
+            ........................
+            ........................
+            ........................
+            ..........ffff..........
+            ........ff1111ff........
+            .......fb111111bf.......
+            .......f11111111f.......
+            ......fd11111111df......
+            ......fd11111111df......
+            ......fddd1111dddf......
+            ......fbdbfddfbdbf......
+            ......fcdcf11fcdcf......
+            .......fb111111bf.......
+            ......fffcdb1bdffff.....
+            ....fc111cbfbfc111cf....
+            ....f1b1b1ffff1b1b1f....
+            ....fbfbffffffbfbfbf....
+            .........ffffff.........
+            ...........fff..........
+            ........................
+            ........................
+            ........................
+            ........................
+            `, SpriteKind.Enemy)
+        Zombie.setPosition(randint(900, 1375), randint(15, 210))
+        Zombie.follow(Helix, randint(10, 30))
+    }
+}
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     if (progress == "introduction") {
         blockMenu.setColors(15, 9)
         blockMenu.showMenu(["Play", "How to play", "About us"], MenuStyle.List, MenuLocation.BottomHalf)
+    }
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile`, function (sprite, location) {
+    if (site1_stage1) {
+        stage_1_site_1()
+        site1_stage1 = false
     }
 })
 function fightBossMusic () {
@@ -110,13 +156,13 @@ function shoot (direction: string) {
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
-            . . 2 2 2 2 2 2 2 2 2 2 2 2 . . 
-            . . 3 3 3 3 3 3 3 3 3 3 3 3 . . 
-            . . 1 1 1 1 1 1 1 1 1 1 1 1 . . 
-            . . 1 1 1 1 1 1 1 1 1 1 1 1 . . 
-            . . 3 3 3 3 3 3 3 3 3 3 3 3 . . 
-            . . 2 2 2 2 2 2 2 2 2 2 2 2 . . 
             . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . 9 9 9 9 9 9 9 9 . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -129,13 +175,13 @@ function shoot (direction: string) {
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
-            . . 2 2 2 2 2 2 2 2 2 2 2 2 . . 
-            . . 3 3 3 3 3 3 3 3 3 3 3 3 . . 
-            . . 1 1 1 1 1 1 1 1 1 1 1 1 . . 
-            . . 1 1 1 1 1 1 1 1 1 1 1 1 . . 
-            . . 3 3 3 3 3 3 3 3 3 3 3 3 . . 
-            . . 2 2 2 2 2 2 2 2 2 2 2 2 . . 
             . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . 9 9 9 9 9 9 9 9 . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -148,14 +194,14 @@ function shoot (direction: string) {
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
-            . . 2 2 2 2 2 2 2 2 2 2 2 2 . . 
-            . . 3 3 3 3 3 3 3 3 3 3 3 3 . . 
-            . . 1 1 1 1 1 1 1 1 1 1 1 1 . . 
-            . . 1 1 1 1 1 1 1 1 1 1 1 1 . . 
-            . . 3 3 3 3 3 3 3 3 3 3 3 3 . . 
-            . . 2 2 2 2 2 2 2 2 2 2 2 2 . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
+            . . . . . . . . 9 . . . . . . . 
+            . . . . . . . . 9 . . . . . . . 
+            . . . . . . . . 9 . . . . . . . 
+            . . . . . . . . 9 . . . . . . . 
+            . . . . . . . . 9 . . . . . . . 
+            . . . . . . . . 9 . . . . . . . 
+            . . . . . . . . 9 . . . . . . . 
+            . . . . . . . . 9 . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -167,19 +213,20 @@ function shoot (direction: string) {
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
-            . . 2 2 2 2 2 2 2 2 2 2 2 2 . . 
-            . . 3 3 3 3 3 3 3 3 3 3 3 3 . . 
-            . . 1 1 1 1 1 1 1 1 1 1 1 1 . . 
-            . . 1 1 1 1 1 1 1 1 1 1 1 1 . . 
-            . . 3 3 3 3 3 3 3 3 3 3 3 3 . . 
-            . . 2 2 2 2 2 2 2 2 2 2 2 2 . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
+            . . . . . . . . 9 . . . . . . . 
+            . . . . . . . . 9 . . . . . . . 
+            . . . . . . . . 9 . . . . . . . 
+            . . . . . . . . 9 . . . . . . . 
+            . . . . . . . . 9 . . . . . . . 
+            . . . . . . . . 9 . . . . . . . 
+            . . . . . . . . 9 . . . . . . . 
+            . . . . . . . . 9 . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             `, Helix, 0, 100)
     }
+    Bullet.startEffect(effects.coolRadial)
 }
 function Introduction_story () {
     scene.setBackgroundImage(img`
@@ -927,6 +974,7 @@ function introduction_story_site_1 () {
     controller.moveSprite(Helix)
     fade_out(700)
     progress = "site 1"
+    site1_stage1 = true
 }
 function main_site_1 () {
     Helix_infor()
@@ -993,12 +1041,19 @@ function Helix_infor () {
         `)
     scene.cameraFollowSprite(Helix)
 }
-let Paper_1: Sprite = null
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
+    sprite.destroy()
+    otherSprite.destroy(effects.ashes, 500)
+})
 let M4A1: Sprite = null
 let Captain: Sprite = null
 let Commander: Sprite = null
 let Bullet: Sprite = null
+let site1_stage1 = false
+let Zombie: Sprite = null
+let List_Y_Position: number[] = []
 let Joseph: Sprite = null
+let Paper_1: Sprite = null
 let Helix: Sprite = null
 let direction = ""
 let progress = ""
