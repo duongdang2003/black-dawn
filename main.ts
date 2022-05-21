@@ -14,6 +14,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Documentation, function (sprite,
 })
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     direction = "up"
+    Helix.setImage(assets.image`myImage3`)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Teammate, function (sprite, otherSprite) {
     if (controller.A.isPressed()) {
@@ -93,6 +94,7 @@ function testMusic () {
 }
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     direction = "left"
+    Helix.setImage(assets.image`myImage1`)
 })
 function fade_out (time: number) {
     color.startFade(color.Black, color.originalPalette, time)
@@ -102,18 +104,19 @@ function fade_in (time: number) {
     color.startFade(color.originalPalette, color.Black, time)
     color.pauseUntilFadeDone()
 }
-scene.onOverlapTile(SpriteKind.Player, img`myTile`, function (sprite, location) {
+function Site_1 () {
+    introduction_story_site_1()
+    main_site_1()
+}
+scene.onOverlapTile(SpriteKind.Player, assets.tile`tile1`, function (sprite, location) {
     if (site1_stage1) {
         stage_1_site_1()
         site1_stage1 = false
     }
 })
-function Site_1 () {
-    introduction_story_site_1()
-    main_site_1()
-}
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     direction = "right"
+    Helix.setImage(assets.image`myImage2`)
 })
 function shoot (direction: string) {
     if (direction == "left") {
@@ -903,6 +906,7 @@ function Introduction_story () {
 }
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     direction = "down"
+    Helix.setImage(assets.image`myImage0`)
 })
 function Helix_infor () {
     info.setLife(3)
@@ -920,7 +924,7 @@ function Helix_infor () {
 }
 function introduction_story_site_1 () {
     fade_out(1000)
-    tiles.setCurrentTilemap(tilemap`level2`)
+    tiles.setCurrentTilemap(tilemap`level1`)
     Captain = sprites.create(img`
         . . . . . . f f f f . . . . . . 
         . . . . f f f 2 2 f f f . . . . 
@@ -968,24 +972,7 @@ function introduction_story_site_1 () {
     M4A1.follow(Helix, 200)
     story.spriteSayText(Captain, "Also we will give you an armor that can resist radiation and absorb damage")
     fade_in(200)
-    Helix.setImage(img`
-        . . . . . . . c c c . . . . . . 
-        . . . . . . c b 5 c . . . . . . 
-        . . . . c c c 5 5 c c c . . . . 
-        . . c c b c 5 5 5 5 c c c c . . 
-        . c b b 5 b 5 5 5 5 b 5 b b c . 
-        . c b 5 5 b b 5 5 b b 5 5 b c . 
-        . . f 5 5 5 b b b b 5 5 5 c . . 
-        . . f f 5 5 5 5 5 5 5 5 f f . . 
-        . . f f f b f e e f b f f f . . 
-        . . f f f 1 f b b f 1 f f f . . 
-        . . . f f b b b b b b f f . . . 
-        . . . e e f e e e e f e e . . . 
-        . . e b c b 5 b b 5 b f b e . . 
-        . . e e f 5 5 5 5 5 5 f e e . . 
-        . . . . c b 5 5 5 5 b c . . . . 
-        . . . . . f f f f f f . . . . . 
-        `)
+    Helix.setImage(assets.image`myImage0`)
     fade_out(200)
     story.spriteSayText(Captain, "And that's all. Any other questions?")
     story.spriteSayText(Helix, "No, i got it")
@@ -1180,5 +1167,6 @@ scene.setBackgroundImage(img`
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     `)
 progress = "introduction"
-color.startFade(color.Black, color.originalPalette, 500)
+color.startFade(color.Black, color.originalPalette, 1000)
+color.pauseUntilFadeDone()
 direction = "down"
