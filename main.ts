@@ -31,25 +31,229 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Teammate, function (sprite, othe
         }
     }
 })
+function chords_G (time_loop: number, vollume: number, time_ring: number, time_rest: number) {
+    for (let index = 0; index < time_loop; index++) {
+        timer.background(function () {
+            music.setVolume(vollume)
+            music.playTone(392, time_ring)
+        })
+        timer.background(function () {
+            music.setVolume(vollume)
+            music.playTone(587, time_ring)
+        })
+        timer.background(function () {
+            music.setVolume(vollume)
+            music.playTone(784, time_ring)
+        })
+        music.setVolume(vollume)
+        music.playTone(196, time_ring)
+        music.rest(time_rest)
+    }
+}
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     if (progress == "introduction") {
         blockMenu.setColors(15, 9)
         blockMenu.showMenu(["Play", "How to play", "About us"], MenuStyle.List, MenuLocation.BottomHalf)
     }
 })
+function fire_gun_sound (can_fire: boolean) {
+    timer.background(function () {
+        music.setVolume(22)
+        music.playTone(370, music.beat(BeatFraction.Quarter))
+    })
+    timer.background(function () {
+        music.setVolume(22)
+        music.playTone(440, music.beat(BeatFraction.Quarter))
+    })
+    timer.background(function () {
+        timer.background(function () {
+            music.setVolume(22)
+            music.playTone(330, music.beat(BeatFraction.Quarter))
+        })
+        timer.background(function () {
+            music.setVolume(22)
+            music.playTone(440, music.beat(BeatFraction.Quarter))
+        })
+        timer.background(function () {
+            music.setVolume(22)
+            music.playTone(554, music.beat(BeatFraction.Quarter))
+        })
+        music.setVolume(22)
+        music.playTone(220, music.beat(BeatFraction.Quarter))
+    })
+    music.setVolume(255)
+    music.pewPew.playUntilDone()
+}
+function chords_A (time_loop: number, vollume: number, time_ring: number, time_rest: number) {
+    for (let index = 0; index < time_loop; index++) {
+        timer.background(function () {
+            music.setVolume(vollume)
+            music.playTone(440, time_ring)
+        })
+        timer.background(function () {
+            music.setVolume(vollume)
+            music.playTone(554, time_ring)
+        })
+        timer.background(function () {
+            music.setVolume(vollume)
+            music.playTone(659, time_ring)
+        })
+        music.setVolume(vollume)
+        music.playTone(220, time_ring)
+        music.rest(time_rest)
+    }
+}
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     blockMenu.setControlsEnabled(false)
     if (progress == "site 1") {
         shoot(direction)
     }
 })
+function pick_up_sound (can_pick_up: boolean) {
+    if (can_pick_up) {
+        timer.background(function () {
+            music.playTone(880, music.beat(BeatFraction.Eighth))
+            music.playTone(784, music.beat(BeatFraction.Sixteenth))
+            music.playTone(698, music.beat(BeatFraction.Sixteenth))
+            music.playTone(440, music.beat(BeatFraction.Eighth))
+            music.playTone(494, music.beat(BeatFraction.Eighth))
+            music.playTone(523, music.beat(BeatFraction.Half))
+        })
+        timer.background(function () {
+            timer.after(120, function () {
+                music.baDing.stop()
+            })
+        })
+        music.baDing.play()
+    }
+}
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     direction = "left"
     Helix.setImage(assets.image`myImage1`)
 })
+function horror_music (can_run_music_horror: boolean, time_loop: number, vollume: number) {
+    while (can_run_music_horror) {
+        for (let index = 0; index < time_loop; index++) {
+            timer.background(function () {
+                chords_F2(7, vollume / 15, 2000, 0)
+            })
+            for (let index = 0; index < 2; index++) {
+                for (let index = 0; index < 4; index++) {
+                    music.setVolume(vollume)
+                    music.playTone(370, music.beat(BeatFraction.Half))
+                    music.playTone(440, music.beat(BeatFraction.Half))
+                }
+                for (let index = 0; index < 4; index++) {
+                    music.setVolume(vollume)
+                    music.playTone(370, music.beat(BeatFraction.Half))
+                    music.playTone(415, music.beat(BeatFraction.Half))
+                }
+            }
+            for (let index = 0; index < 4; index++) {
+                music.setVolume(vollume)
+                music.playTone(370, music.beat(BeatFraction.Half))
+                music.playTone(523, music.beat(BeatFraction.Half))
+            }
+            for (let index = 0; index < 4; index++) {
+                music.setVolume(vollume)
+                music.playTone(370, music.beat(BeatFraction.Half))
+                music.playTone(415, music.beat(BeatFraction.Half))
+            }
+            for (let index = 0; index < 4; index++) {
+                music.setVolume(vollume)
+                music.playTone(370, music.beat(BeatFraction.Half))
+                music.playTone(554, music.beat(BeatFraction.Half))
+            }
+            for (let index = 0; index < 4; index++) {
+                music.setVolume(vollume)
+                music.playTone(370, music.beat(BeatFraction.Half))
+                music.playTone(415, music.beat(BeatFraction.Half))
+            }
+            timer.background(function () {
+                timer.background(function () {
+                    music.setVolume(vollume / 2)
+                    music.playTone(880, music.beat(BeatFraction.Double))
+                    music.rest(music.beat(BeatFraction.Double))
+                    music.setVolume(vollume / 2)
+                    music.playTone(740, music.beat(BeatFraction.Double))
+                    music.setVolume(vollume / 2)
+                    music.playTone(554, music.beat(BeatFraction.Double))
+                    music.setVolume(vollume / 2)
+                    music.playTone(523, music.beat(BeatFraction.Breve))
+                    music.rest(music.beat(BeatFraction.Breve))
+                })
+                chords_A(1, vollume / 5, 2000, 0)
+                chords_F2(1, vollume / 5, 1000, 0)
+                chords_C2(1, vollume / 5, 1000, 0)
+                chords_C(2, vollume / 5, 2000, 0)
+            })
+            for (let index = 0; index < 8; index++) {
+                music.setVolume(vollume / 2)
+                music.playTone(370, music.beat(BeatFraction.Half))
+                music.playTone(440, music.beat(BeatFraction.Half))
+            }
+            for (let index = 0; index < 8; index++) {
+                music.setVolume(vollume / 2)
+                music.playTone(370, music.beat(BeatFraction.Half))
+                music.playTone(415, music.beat(BeatFraction.Half))
+            }
+        }
+    }
+}
 function fade_out (time: number) {
     color.startFade(color.Black, color.originalPalette, time)
     color.pauseUntilFadeDone()
+}
+function fight_boss_music (can_run_fight_boss_music: boolean, time_loop: number, vollume: number, time_beat: number) {
+    while (can_run_fight_boss_music) {
+        for (let index = 0; index < time_loop; index++) {
+            timer.background(function () {
+                chords_C(1, vollume / 5, 2000, 50)
+                chords_G(1, vollume / 5, 2000, 50)
+                chords_C(1, vollume / 5, 2000, 50)
+            })
+            for (let index = 0; index < 4; index++) {
+                music.setVolume(vollume)
+                music.playMelody("G F E D C C D E ", time_beat)
+            }
+            music.setVolume(vollume)
+            music.playMelody("C5 B G - B A G B ", time_beat)
+            music.setVolume(vollume)
+            music.playMelody("A G A - B - A B ", time_beat)
+            music.setVolume(vollume)
+            music.playMelody("C5 B G - B A G B ", time_beat)
+            music.setVolume(vollume)
+            music.playMelody("D E F G B G E F ", time_beat)
+        }
+    }
+}
+function chords_B (time_loop: number, vollume: number, time_ring: number, time_rest: number) {
+    for (let index = 0; index < time_loop; index++) {
+        timer.background(function () {
+            music.setVolume(vollume)
+            music.playTone(494, time_ring)
+        })
+        timer.background(function () {
+            music.setVolume(vollume)
+            music.playTone(622, time_ring)
+        })
+        timer.background(function () {
+            music.setVolume(vollume)
+            music.playTone(831, time_ring)
+        })
+        music.setVolume(vollume)
+        music.playTone(247, time_ring)
+        music.rest(time_rest)
+    }
+}
+function save_site (site: string) {
+    blockSettings.writeString("part", site)
+    timer.after(4000, function () {
+        timer.background(function () {
+            Notification.waitForNotificationFinish()
+            Notification.notify("Your progress have been save!", 1, assets.image`floppy_disc`)
+        })
+    })
 }
 function fade_in (time: number) {
     color.startFade(color.originalPalette, color.Black, time)
@@ -58,6 +262,63 @@ function fade_in (time: number) {
 function Site_1 () {
     introduction_story_site_1()
     main_site_1()
+}
+function chords_F (time_loop: number, vollume: number, time_ring: number, time_rest: number) {
+    for (let index = 0; index < time_loop; index++) {
+        timer.background(function () {
+            music.setVolume(vollume)
+            music.playTone(440, time_ring)
+        })
+        timer.background(function () {
+            music.setVolume(vollume)
+            music.playTone(523, time_ring)
+        })
+        timer.background(function () {
+            music.setVolume(vollume)
+            music.playTone(698, time_ring)
+        })
+        music.setVolume(vollume)
+        music.playTone(175, time_ring)
+        music.rest(time_rest)
+    }
+}
+function chords_F2 (time_loop: number, vollume: number, time_ring: number, time_rest: number) {
+    for (let index = 0; index < time_loop; index++) {
+        timer.background(function () {
+            music.setVolume(vollume)
+            music.playTone(466, time_ring)
+        })
+        timer.background(function () {
+            music.setVolume(vollume)
+            music.playTone(554, time_ring)
+        })
+        timer.background(function () {
+            music.setVolume(vollume)
+            music.playTone(740, time_ring)
+        })
+        music.setVolume(vollume)
+        music.playTone(185, time_ring)
+        music.rest(time_rest)
+    }
+}
+function chords_E (time_loop: number, vollume: number, time_ring: number, time_rest: number) {
+    for (let index = 0; index < time_loop; index++) {
+        timer.background(function () {
+            music.setVolume(vollume)
+            music.playTone(392, time_ring)
+        })
+        timer.background(function () {
+            music.setVolume(vollume)
+            music.playTone(494, time_ring)
+        })
+        timer.background(function () {
+            music.setVolume(vollume)
+            music.playTone(659, time_ring)
+        })
+        music.setVolume(vollume)
+        music.playTone(165, time_ring)
+        music.rest(time_rest)
+    }
 }
 scene.onOverlapTile(SpriteKind.Player, assets.tile`tile1`, function (sprite, location) {
     if (site1_stage1) {
@@ -859,6 +1120,19 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     direction = "down"
     Helix.setImage(assets.image`myImage0`)
 })
+function is_beaten (beaten: boolean, vollume: number) {
+    music.setVolume(vollume)
+    timer.background(function () {
+        chords_G(1, 15, 20, 0)
+    })
+    timer.background(function () {
+        chords_E(1, 15, 20, 0)
+    })
+    timer.background(function () {
+        chords_C(1, 20, 20, 0)
+    })
+    music.buzzer.playUntilDone()
+}
 function Helix_infor () {
     info.setLife(3)
     spriteutils.setLifeImage(img`
@@ -872,6 +1146,32 @@ function Helix_infor () {
         . . f f f . . 
         `)
     scene.cameraFollowSprite(Helix)
+}
+function storeMusic () {
+    music.playMelody("A A A A A A A C5 ", 300)
+    music.playMelody("C5 B A F F G A B ", 300)
+    music.playMelody("A B C5 C D C C5 B ", 300)
+    music.playMelody("C D E F G F E D ", 300)
+    music.playMelody("F G A B C5 B A G ", 300)
+}
+function chords_C (time_loop: number, vollume: number, time_ring: number, time_rest: number) {
+    for (let index = 0; index < time_loop; index++) {
+        timer.background(function () {
+            music.setVolume(vollume)
+            music.playTone(392, time_ring)
+        })
+        timer.background(function () {
+            music.setVolume(vollume)
+            music.playTone(523, time_ring)
+        })
+        timer.background(function () {
+            music.setVolume(vollume)
+            music.playTone(659, time_ring)
+        })
+        music.setVolume(vollume)
+        music.playTone(262, time_ring)
+        music.rest(time_rest)
+    }
 }
 function introduction_story_site_1 () {
     fade_out(1000)
@@ -966,6 +1266,69 @@ function stage_1_site_1 () {
             `, SpriteKind.Enemy)
         Zombie.setPosition(randint(900, 1375), randint(15, 210))
         Zombie.follow(Helix, randint(10, 30))
+    }
+}
+function chords_D (time_loop: number, vollume: number, time_ring: number, time_rest: number) {
+    for (let index = 0; index < time_loop; index++) {
+        timer.background(function () {
+            music.setVolume(vollume)
+            music.playTone(440, time_ring)
+        })
+        timer.background(function () {
+            music.setVolume(vollume)
+            music.playTone(554, time_ring)
+        })
+        timer.background(function () {
+            music.setVolume(vollume)
+            music.playTone(740, time_ring)
+        })
+        music.setVolume(vollume)
+        music.playTone(294, time_ring)
+        music.rest(time_rest)
+    }
+}
+function chords_C2 (time_loop: number, vollume: number, time_ring: number, time_rest: number) {
+    for (let index = 0; index < time_loop; index++) {
+        timer.background(function () {
+            music.setVolume(vollume)
+            music.playTone(415, time_ring)
+        })
+        timer.background(function () {
+            music.setVolume(vollume)
+            music.playTone(554, time_ring)
+        })
+        timer.background(function () {
+            music.setVolume(vollume)
+            music.playTone(698, time_ring)
+        })
+        music.setVolume(vollume)
+        music.playTone(277, time_ring)
+        music.rest(time_rest)
+    }
+}
+function intro_music (can_run_intro_music: boolean, time_loop: number, vollume: number, time_beat: number) {
+    while (can_run_intro_music) {
+        timer.background(function () {
+            for (let index = 0; index < time_loop; index++) {
+                music.setVolume(vollume * 2)
+                music.playMelody("C A E G D E F E ", 120)
+                music.setVolume(vollume * 2)
+                music.playMelody("- F E F E G D C ", 120)
+                music.setVolume(vollume * 2)
+                music.playMelody("D F C C5 A G F E ", 120)
+            }
+        })
+        for (let index = 0; index < time_loop; index++) {
+            chords_C(1, vollume, time_beat, time_beat)
+            chords_E(1, vollume, time_beat, time_beat)
+            chords_D(1, vollume, time_beat, time_beat)
+            chords_F(2, vollume, time_beat, time_beat)
+            chords_E(2, vollume, time_beat, time_beat)
+            chords_D(2, vollume, time_beat, time_beat)
+            chords_C(1, vollume, time_beat, time_beat)
+            chords_G(1, vollume, time_beat, time_beat)
+            chords_E(1, vollume, time_beat, time_beat)
+        }
     }
 }
 blockMenu.onMenuOptionSelected(function (option, index) {
