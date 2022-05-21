@@ -89,6 +89,11 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "myImage5"
     },
+    "image18": {
+        "data": "hwQUABQAAAAAAAAAAAAAAAAAAAAAAAAAAPAPAAAAAAAAAAAA///7AAAAAAAAAADwv8+8DwAAAAAAAAD/y//P/AAAAAAAAPC//H/3zA8AAAAAAPC8/He3zw8AAAAAAPC8/He/+w8AAAAAAAAAAAAAAAAAAAAAAPD//8z8/w8AAAAAAP/8zCzM/A8AAAAA8M/MzCLMzA8AAAAA/8zMLCLM/wAAAAAA3///zMz8AAAAAADw/939zMwPAAAAAADw//////8AAAAAAAAAAADw/w8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Helix and Wolf"
+    },
     "anim1": {
         "namespace": "myAnimations",
         "id": "anim1",
