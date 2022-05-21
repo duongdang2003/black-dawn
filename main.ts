@@ -37,61 +37,12 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
         blockMenu.showMenu(["Play", "How to play", "About us"], MenuStyle.List, MenuLocation.BottomHalf)
     }
 })
-function fightBossMusic () {
-    music.playMelody("D - E - C D E D ", 120)
-    while (true) {
-        music.playTone(330, music.beat(BeatFraction.Half))
-        music.playTone(349, music.beat(BeatFraction.Half))
-        music.playTone(330, music.beat(BeatFraction.Half))
-        music.playTone(294, music.beat(BeatFraction.Half))
-        music.playTone(330, music.beat(BeatFraction.Quarter))
-        music.playTone(349, music.beat(BeatFraction.Quarter))
-    }
-}
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     blockMenu.setControlsEnabled(false)
     if (progress == "site 1") {
         shoot(direction)
     }
 })
-function testMusic () {
-    while (true) {
-        for (let index = 0; index < 3; index++) {
-            music.playTone(262, music.beat(BeatFraction.Half))
-            music.playTone(175, music.beat(BeatFraction.Half))
-            music.playTone(196, music.beat(BeatFraction.Half))
-            music.playTone(156, music.beat(BeatFraction.Whole))
-            music.playTone(196, music.beat(BeatFraction.Half))
-            music.playTone(165, music.beat(BeatFraction.Half))
-            music.playTone(196, music.beat(BeatFraction.Half))
-        }
-        music.playTone(262, music.beat(BeatFraction.Half))
-        music.playTone(294, music.beat(BeatFraction.Quarter))
-        music.playTone(311, music.beat(BeatFraction.Half))
-        music.playTone(349, music.beat(BeatFraction.Quarter))
-        music.playTone(294, music.beat(BeatFraction.Half))
-        for (let index = 0; index < 2; index++) {
-            music.playTone(392, music.beat(BeatFraction.Whole))
-            music.playTone(330, music.beat(BeatFraction.Half))
-            music.playTone(349, music.beat(BeatFraction.Whole))
-            music.playTone(330, music.beat(BeatFraction.Half))
-            music.playTone(392, music.beat(BeatFraction.Half))
-            music.playTone(330, music.beat(BeatFraction.Half))
-            music.playTone(349, music.beat(BeatFraction.Whole))
-            music.playTone(294, music.beat(BeatFraction.Half))
-            music.playTone(349, music.beat(BeatFraction.Half))
-            music.playTone(294, music.beat(BeatFraction.Whole))
-            music.playTone(330, music.beat(BeatFraction.Half))
-            music.playTone(294, music.beat(BeatFraction.Half))
-            music.playTone(262, music.beat(BeatFraction.Half))
-            music.playTone(262, music.beat(BeatFraction.Half))
-            music.playTone(262, music.beat(BeatFraction.Whole))
-            music.playTone(440, music.beat(BeatFraction.Half))
-        }
-    }
-    music.setVolume(255)
-    music.setTempo(120)
-}
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     direction = "left"
     Helix.setImage(assets.image`myImage1`)
