@@ -28,17 +28,8 @@
         "images.g.jres",
         "images.g.ts",
         "tilemap.g.jres",
-        "tilemap.g.ts"
+        "tilemap.g.ts",
+        null
     ],
-    "testFiles": [
-        "test.ts"
-    ],
-    "targetVersions": {
-        "target": "1.8.23",
-        "targetId": "arcade"
-    },
-    "supportedTargets": [
-        "arcade"
-    ],
-    "preferredEditor": "blocksprj"
+    "preferredEditor": "tsprj"
 }
