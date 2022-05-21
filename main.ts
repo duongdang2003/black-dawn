@@ -109,6 +109,25 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         shoot(direction)
     }
 })
+function chords_C2 (time_loop: number, vollume: number, time_ring: number, time_rest: number) {
+    for (let index = 0; index < time_loop; index++) {
+        timer.background(function () {
+            music.setVolume(vollume)
+            music.playTone(415, time_ring)
+        })
+        timer.background(function () {
+            music.setVolume(vollume)
+            music.playTone(554, time_ring)
+        })
+        timer.background(function () {
+            music.setVolume(vollume)
+            music.playTone(698, time_ring)
+        })
+        music.setVolume(vollume)
+        music.playTone(277, time_ring)
+        music.rest(time_rest)
+    }
+}
 function pick_up_sound (can_pick_up: boolean) {
     if (can_pick_up) {
         timer.background(function () {
@@ -279,25 +298,6 @@ function chords_F (time_loop: number, vollume: number, time_ring: number, time_r
         })
         music.setVolume(vollume)
         music.playTone(175, time_ring)
-        music.rest(time_rest)
-    }
-}
-function chords_F2 (time_loop: number, vollume: number, time_ring: number, time_rest: number) {
-    for (let index = 0; index < time_loop; index++) {
-        timer.background(function () {
-            music.setVolume(vollume)
-            music.playTone(466, time_ring)
-        })
-        timer.background(function () {
-            music.setVolume(vollume)
-            music.playTone(554, time_ring)
-        })
-        timer.background(function () {
-            music.setVolume(vollume)
-            music.playTone(740, time_ring)
-        })
-        music.setVolume(vollume)
-        music.playTone(185, time_ring)
         music.rest(time_rest)
     }
 }
@@ -1120,6 +1120,25 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     direction = "down"
     Helix.setImage(assets.image`myImage0`)
 })
+function chords_F2 (time_loop: number, vollume: number, time_ring: number, time_rest: number) {
+    for (let index = 0; index < time_loop; index++) {
+        timer.background(function () {
+            music.setVolume(vollume)
+            music.playTone(466, time_ring)
+        })
+        timer.background(function () {
+            music.setVolume(vollume)
+            music.playTone(554, time_ring)
+        })
+        timer.background(function () {
+            music.setVolume(vollume)
+            music.playTone(740, time_ring)
+        })
+        music.setVolume(vollume)
+        music.playTone(185, time_ring)
+        music.rest(time_rest)
+    }
+}
 function is_beaten (beaten: boolean, vollume: number) {
     music.setVolume(vollume)
     timer.background(function () {
@@ -1293,25 +1312,6 @@ function chords_D (time_loop: number, vollume: number, time_ring: number, time_r
         })
         music.setVolume(vollume)
         music.playTone(294, time_ring)
-        music.rest(time_rest)
-    }
-}
-function chords_C2 (time_loop: number, vollume: number, time_ring: number, time_rest: number) {
-    for (let index = 0; index < time_loop; index++) {
-        timer.background(function () {
-            music.setVolume(vollume)
-            music.playTone(415, time_ring)
-        })
-        timer.background(function () {
-            music.setVolume(vollume)
-            music.playTone(554, time_ring)
-        })
-        timer.background(function () {
-            music.setVolume(vollume)
-            music.playTone(698, time_ring)
-        })
-        music.setVolume(vollume)
-        music.playTone(277, time_ring)
         music.rest(time_rest)
     }
 }
