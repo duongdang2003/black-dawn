@@ -1235,6 +1235,15 @@ function introduction_story_site_1 () {
     progress = "site 1"
     site1_stage1 = true
 }
+function testAnimate () {
+    mouse = sprites.create(assets.image`mouse`, SpriteKind.Player)
+    animation.runImageAnimation(
+    mouse,
+    assets.animation`mouse_down`,
+    200,
+    false
+    )
+}
 function stage_1_site_1 () {
     List_Y_Position = [15, 1]
     for (let index = 0; index < 10; index++) {
@@ -1348,6 +1357,7 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, oth
 })
 let Zombie: Sprite = null
 let List_Y_Position: number[] = []
+let mouse: Sprite = null
 let M4A1: Sprite = null
 let Captain: Sprite = null
 let Commander: Sprite = null
