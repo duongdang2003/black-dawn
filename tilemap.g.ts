@@ -29,6 +29,12 @@ namespace myTiles {
     //% fixedInstance jres blockIdentity=images._tile
     export const tile17 = image.ofBuffer(hex``);
     //% fixedInstance jres blockIdentity=images._tile
+    export const tile18 = image.ofBuffer(hex``);
+    //% fixedInstance jres blockIdentity=images._tile
+    export const tile19 = image.ofBuffer(hex``);
+    //% fixedInstance jres blockIdentity=images._tile
+    export const tile20 = image.ofBuffer(hex``);
+    //% fixedInstance jres blockIdentity=images._tile
     export const tile1 = image.ofBuffer(hex``);
     //% fixedInstance jres blockIdentity=images._tile
     export const tile8 = image.ofBuffer(hex``);
@@ -36,12 +42,6 @@ namespace myTiles {
     export const tile9 = image.ofBuffer(hex``);
     //% fixedInstance jres blockIdentity=images._tile
     export const tile10 = image.ofBuffer(hex``);
-    //% fixedInstance jres blockIdentity=images._tile
-    export const tile18 = image.ofBuffer(hex``);
-    //% fixedInstance jres blockIdentity=images._tile
-    export const tile19 = image.ofBuffer(hex``);
-    //% fixedInstance jres blockIdentity=images._tile
-    export const tile20 = image.ofBuffer(hex``);
 
     helpers._registerFactory("tilemap", function(name: string) {
         switch(helpers.stringTrim(name)) {
@@ -149,6 +149,12 @@ namespace myTiles {
             case "tile16":return tile16;
             case "myTile14":
             case "tile17":return tile17;
+            case "myTile15":
+            case "tile18":return tile18;
+            case "myTile16":
+            case "tile19":return tile19;
+            case "myTile17":
+            case "tile20":return tile20;
             case "tile1":return tile1;
             case "myTile5":
             case "tile8":return tile8;
@@ -156,12 +162,6 @@ namespace myTiles {
             case "tile9":return tile9;
             case "myTile7":
             case "tile10":return tile10;
-            case "myTile15":
-            case "tile18":return tile18;
-            case "myTile16":
-            case "tile19":return tile19;
-            case "myTile17":
-            case "tile20":return tile20;
         }
         return null;
     })
