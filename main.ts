@@ -6,14 +6,6 @@ namespace SpriteKind {
     export const Documentation = SpriteKind.create()
     export const Boss = SpriteKind.create()
 }
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Documentation, function (sprite, otherSprite) {
-    if (controller.A.isPressed()) {
-        let Paper_1: Sprite = null
-        if (Helix.overlapsWith(Paper_1)) {
-            game.showLongText("Wow wow wow", DialogLayout.Full)
-        }
-    }
-})
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     if (direction_button) {
         direction = "up"
@@ -365,17 +357,17 @@ function chords_E (time_loop: number, vollume: number, time_ring: number, time_r
         music.rest(time_rest)
     }
 }
-scene.onOverlapTile(SpriteKind.Player, assets.tile`tile1`, function (sprite, location) {
-    if (site1_stage1) {
-        stage_1_site_1()
-        site1_stage1 = false
-    }
-})
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     if (direction_button) {
         direction = "right"
         Helix.setImage(assets.image`myImage2`)
         DE.setImage(assets.image`Laser DE 1`)
+    }
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile17`, function (sprite, location) {
+    if (site1_stage1) {
+        stage_1_site_1()
+        site1_stage1 = false
     }
 })
 function shoot (direction: string) {
@@ -394,7 +386,7 @@ function shoot (direction: string) {
         armor_number += 1
         canShoot = false
         if (armor_number < 7) {
-            timer.after(500, function () {
+            timer.after(300, function () {
                 canShoot = true
             })
         } else {
@@ -882,8 +874,8 @@ let isRunning = false
 let Boss: Sprite = null
 let Joseph: Sprite = null
 let DE: Sprite = null
-let direction = ""
 let Helix: Sprite = null
+let direction = ""
 let isBossCreated = false
 let direction_button = false
 let progress = ""
