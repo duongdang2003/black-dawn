@@ -1,5 +1,5 @@
 {
-    "name": "Black Dawn",
+    "name": "Laser DE 1",
     "description": "",
     "dependencies": {
         "device": "*",
@@ -16,7 +16,10 @@
         "arcade-sprite-util": "github:jwunderl/arcade-sprite-util#v0.2.5",
         "pxt-status-bar": "github:jwunderl/pxt-status-bar#v0.4.1",
         "settings-blocks": "github:microsoft/pxt-settings-blocks#v1.0.0",
-        "Notifications": "github:UnsignedArduino/Notifications#de6517dcc280cafe902ef212f59d4f55a982c7ec"
+        "Notifications": "github:UnsignedArduino/Notifications#de6517dcc280cafe902ef212f59d4f55a982c7ec",
+        "sprite-scaling": "*",
+        "pxt-scaling": "github:jwunderl/pxt-scaling#v0.1.0",
+        "arcade-character-animations": "github:microsoft/arcade-character-animations#v0.0.2"
     },
     "files": [
         "main.blocks",
@@ -38,5 +41,5 @@
     "supportedTargets": [
         "arcade"
     ],
-    "preferredEditor": "tsprj"
+    "preferredEditor": "blocksprj"
 }
