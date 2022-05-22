@@ -379,7 +379,24 @@ function shoot (direction: string) {
 }
 function main_site_1 () {
     Helix_infor()
-    Joseph = sprites.create(assets.image`Joseph`, SpriteKind.Teammate)
+    Joseph = sprites.create(img`
+        . . . . . f f f f . . . . . 
+        . . . f f 5 5 5 5 f f . . . 
+        . . f 5 5 5 5 5 5 5 5 f . . 
+        . f 5 5 5 5 5 5 5 5 5 5 f . 
+        . f 5 5 5 d b b d 5 5 5 f . 
+        f 5 5 5 b 4 4 4 4 b 5 5 5 f 
+        f 5 5 c c 4 4 4 4 c c 5 5 f 
+        f b b f b f 4 4 f b f b b f 
+        f b b 4 1 f d d f 1 4 b b f 
+        . f b f d d d d d d f b f . 
+        . f e f e 4 4 4 4 e f e f . 
+        . e 4 f 6 9 9 9 9 6 f 4 e . 
+        . 4 d c 9 9 9 9 9 9 c d 4 . 
+        . 4 f b 3 b 3 b 3 b b f 4 . 
+        . . f f 3 b 3 b 3 3 f f . . 
+        . . . . f f b b f f . . . . 
+        `, SpriteKind.Teammate)
     Joseph.setPosition(540, 30)
     Paper_1 = sprites.create(assets.image`Paper`, SpriteKind.Documentation)
 }
@@ -766,7 +783,24 @@ function chords_C (time_loop: number, vollume: number, time_ring: number, time_r
 function introduction_story_site_1 () {
     fade_out(1000)
     tiles.setCurrentTilemap(tilemap`level1`)
-    Captain = sprites.create(assets.image`Captain`, SpriteKind.NPC)
+    Captain = sprites.create(img`
+        . . . . . . f f f f . . . . . . 
+        . . . . f f f 2 2 f f f . . . . 
+        . . . f f f 2 2 2 2 f f f . . . 
+        . . f f f e e e e e e f f f . . 
+        . . f f e 2 2 2 2 2 2 e e f . . 
+        . . f e 2 f f f f f f 2 e f . . 
+        . . f f f f e e e e f f f f . . 
+        . f f e f b f 4 4 f b f e f f . 
+        . f e e 4 1 f d d f 1 4 e e f . 
+        . . f e e d d d d d d e e f . . 
+        . . . f e e 4 4 4 4 e e f . . . 
+        . . e 4 f 2 2 2 2 2 2 f 4 e . . 
+        . . 4 d f 2 2 2 2 2 2 f d 4 . . 
+        . . 4 4 f 4 4 5 5 4 4 f 4 4 . . 
+        . . . . . f f f f f f . . . . . 
+        . . . . . f f . . f f . . . . . 
+        `, SpriteKind.NPC)
     Captain.setPosition(60, 60)
     story.spriteSayText(Captain, "Hi soldier welcome to SFAU base No.1. I am Mark Scott captain of this base. I'm sure you've heard about the mission of the vanguard, right?")
     story.spriteSayText(Helix, "Yes")
