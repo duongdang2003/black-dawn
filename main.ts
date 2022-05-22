@@ -556,16 +556,6 @@ function chords_F (time_loop: number, vollume: number, time_ring: number, time_r
         music.rest(time_rest)
     }
 }
-function make_gun (size: number) {
-    Deager_gun = sprites.create(assets.animation`DE_animation`[0], SpriteKind.Gun)
-    temp_gun = assets.animation`DE_animation`
-    characterAnimations.loopFrames(
-    Deager_gun,
-    scale_animation_by(size),
-    100,
-    characterAnimations.rule(Predicate.NotMoving)
-    )
-}
 function chords_E (time_loop: number, vollume: number, time_ring: number, time_rest: number) {
     for (let index = 0; index < time_loop; index++) {
         timer.background(function () {
@@ -733,6 +723,16 @@ function main_site_1 () {
         . . . . . . f f f f . . . . . . 
         . . . . . . . . . . . . . . . . 
         `, SpriteKind.Documentation)
+}
+function change_size (size: number, kind: any[]) {
+    Deager_gun = sprites.create(kind[0], SpriteKind.Gun)
+    temp_gun = kind
+    characterAnimations.loopFrames(
+    Deager_gun,
+    scale_animation_by(size),
+    100,
+    characterAnimations.rule(Predicate.NotMoving)
+    )
 }
 function Introduction_story () {
     scene.setBackgroundImage(img`
@@ -1296,25 +1296,8 @@ function introduction_story_site_1 () {
     story.spriteSayText(Captain, "Do you have any question?")
     story.spriteSayText(Helix, "Do I have any equipment?")
     story.spriteSayText(Captain, "Absolutely, soldier. we will give you an M4A1 with automatic fire, accurate, durable, low recoil and heat resistant. Very suitable for this campaign.")
-    M4A1 = sprites.create(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . f f f f f f f f f f f f f f . 
-        . f 7 7 7 7 7 7 7 7 7 7 7 7 f . 
-        . f 7 7 7 7 7 7 7 7 7 7 7 7 f . 
-        . f f f f f f f f f f f f f f . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        `, SpriteKind.Gun)
-    M4A1.follow(Helix, 200)
+    mySprite = sprites.create(assets.image`DE_1`, SpriteKind.Gun)
+    Deager_gun.follow(Helix, 200)
     story.spriteSayText(Captain, "Also we will give you an armor that can resist radiation and absorb damage")
     fade_in(200)
     Helix.setImage(assets.image`Helix_down`)
@@ -1473,15 +1456,15 @@ let random2 = 0
 let random1 = 0
 let gun_size: Image[] = []
 let canBeInjure = false
-let M4A1: Sprite = null
+let mySprite: Sprite = null
 let Captain: Sprite = null
 let Commander: Sprite = null
+let temp_gun: any[] = []
+let Deager_gun: Sprite = null
 let armor_number = 0
 let Bullet: Sprite = null
 let canShoot = false
 let site1_stage1 = false
-let temp_gun: Image[] = []
-let Deager_gun: Sprite = null
 let banner2: Sprite = null
 let Joseph: Sprite = null
 let direction = ""
@@ -1497,7 +1480,6 @@ timer.background(function () {
     intro_music(true, 4, 120, 1000)
 })
 banner_Animation()
-make_gun(0.5)
 timer.after(4000, function () {
     animation.stopAnimation(animation.AnimationTypes.All, banner)
     blockMenu.setControlsEnabled(true)
