@@ -18,7 +18,8 @@
         "settings-blocks": "github:microsoft/pxt-settings-blocks#v1.0.0",
         "Notifications": "github:UnsignedArduino/Notifications#de6517dcc280cafe902ef212f59d4f55a982c7ec",
         "sprite-scaling": "*",
-        "pxt-scaling": "github:jwunderl/pxt-scaling#v0.1.0"
+        "pxt-scaling": "github:jwunderl/pxt-scaling#v0.1.0",
+        "arcade-character-animations": "github:microsoft/arcade-character-animations#v0.0.2"
     },
     "files": [
         "main.blocks",

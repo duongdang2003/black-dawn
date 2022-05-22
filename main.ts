@@ -556,6 +556,16 @@ function chords_F (time_loop: number, vollume: number, time_ring: number, time_r
         music.rest(time_rest)
     }
 }
+function make_gun (size: number) {
+    Deager_gun = sprites.create(assets.animation`DE_animation`[0], SpriteKind.Gun)
+    temp_gun = assets.animation`DE_animation`
+    characterAnimations.loopFrames(
+    Deager_gun,
+    scale_animation_by(size),
+    100,
+    characterAnimations.rule(Predicate.NotMoving)
+    )
+}
 function chords_E (time_loop: number, vollume: number, time_ring: number, time_rest: number) {
     for (let index = 0; index < time_loop; index++) {
         timer.background(function () {
@@ -1324,6 +1334,19 @@ function introduction_story_site_1 () {
     canShoot = true
     canBeInjure = true
 }
+function scale_animation_by (size: number) {
+    gun_size = []
+    for (let value of temp_gun) {
+        if (size == 0.5) {
+            gun_size.push(scaling.scaleHalfX(value))
+        } else if (size == 2) {
+            gun_size.push(scaling.scale2x(value))
+        } else if (size == 3) {
+            gun_size.push(scaling.scale3x(value))
+        }
+    }
+    return gun_size
+}
 function stage_1_site_1 () {
     random1 = 500
     random2 = 3000
@@ -1448,6 +1471,7 @@ let Zombie: Sprite = null
 let List_Y_Position: number[] = []
 let random2 = 0
 let random1 = 0
+let gun_size: Image[] = []
 let canBeInjure = false
 let M4A1: Sprite = null
 let Captain: Sprite = null
@@ -1456,6 +1480,8 @@ let armor_number = 0
 let Bullet: Sprite = null
 let canShoot = false
 let site1_stage1 = false
+let temp_gun: Image[] = []
+let Deager_gun: Sprite = null
 let banner2: Sprite = null
 let Joseph: Sprite = null
 let direction = ""
@@ -1471,6 +1497,7 @@ timer.background(function () {
     intro_music(true, 4, 120, 1000)
 })
 banner_Animation()
+make_gun(0.5)
 timer.after(4000, function () {
     animation.stopAnimation(animation.AnimationTypes.All, banner)
     blockMenu.setControlsEnabled(true)
