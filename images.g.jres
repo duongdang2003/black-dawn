@@ -119,6 +119,11 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "welcome_darkdawn"
     },
+    "image23": {
+        "data": "hwQZAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8PAAAAAAAA8PkPAAAAAACf/w8AAAAAAJ//DwAAAAAAn/8AAAAAAACfDwAAAAAAAJ8PAAAAAAAAnw8AAAAAAACfDwAAAAAAAP8PAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Laser DE 1"
+    },
     "anim1": {
         "namespace": "myAnimations",
         "id": "anim1",
